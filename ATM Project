@@ -1,0 +1,44 @@
+#include <stdio.h>
+int credit, debit;
+float balance,amount;
+char choice,c,d,b;
+ void main()
+ {
+    printf("\t\t***** Welcome to ATM *****\t\t\n");
+    printf("Enter Initial Amount:\n");
+    scanf("%f",&amount);                                     //Enter initial amount
+    printf("\nEnter c for credit\n Enter d for debit\n Enter b for balance\n");
+    scanf("%s",&choice);                                     //Enter choice
+
+switch(choice)
+  {
+    case 'c':                                                //For creadit Operation
+      printf("Enter amount you want to credit:");
+      scanf("%d",&credit);
+      amount=amount+credit;
+      printf("Your account balance is:%f",amount);
+      break;
+
+    case 'd':                                                //For debit operation
+      printf("Enter amount you want to debit:");
+      scanf("%d",&debit);
+      if(amount >= debit)
+        {
+      amount=amount-debit;
+      printf("Your account balance is:%f",amount);
+        }
+       else
+       {
+           printf("Your account balance is insufficient.\n"); // Balance is insufficinent
+       }
+     break;
+
+    case 'b':                                                 // For checking balance
+      printf("Your account balance is:%f",amount);
+      break;
+
+    default:                                                  //Invalid choice
+        printf("Invalid choice- Try again");
+   }
+}
+
